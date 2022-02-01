@@ -1,3 +1,4 @@
+//importando os componentes e paletas de cores
 import { Box, Text, TextField, Image, Button } from '@skynexui/components';
 import React from 'react';
 import appConfig from '../config.json';
@@ -9,10 +10,9 @@ export default function ChatPage() {
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
             id: listaDeMensagens.length + 1,
-            de: 'vanessametonini',
+            de: 'bezao244',
             texto: novaMensagem,
         };
-
         setListaDeMensagens([
             mensagem,
             ...listaDeMensagens,
@@ -73,12 +73,16 @@ export default function ChatPage() {
                         }}
                     >
                         <TextField
+                        //CAMPO DE TEXTO
                             value={mensagem}
                             onChange={(event) => {
+                                //pegando o valor digitado
                                 const valor = event.target.value;
+                                //definindo o valor para a mensagem
                                 setMensagem(valor);
                             }}
                             onKeyPress={(event) => {
+                                //quando der enter
                                 if (event.key === 'Enter') {
                                     event.preventDefault();
                                     handleNovaMensagem(mensagem);
@@ -137,6 +141,7 @@ function MessageList(props) {
             }}
         >
             {props.mensagens.map((mensagem) => {
+                //array comecando vazio
                 return (
                     <Text
                         key={mensagem.id}
@@ -163,7 +168,7 @@ function MessageList(props) {
                                     display: 'inline-block',
                                     marginRight: '8px',
                                 }}
-                                src={`https://github.com/vanessametonini.png`}
+                                src={`https://github.com/bezao244.png`}
                             />
                             <Text tag="strong">
                                 {mensagem.de}
